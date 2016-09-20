@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 5.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABMlibreria", "ABMlibreria\ABMlibreria.csproj", "{6E503BCF-4575-430C-96BF-3CA246458894}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E503BCF-4575-430C-96BF-3CA246458894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E503BCF-4575-430C-96BF-3CA246458894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E503BCF-4575-430C-96BF-3CA246458894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E503BCF-4575-430C-96BF-3CA246458894}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
