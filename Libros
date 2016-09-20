@@ -1,0 +1,95 @@
+
+using System;
+
+namespace ABMlibreria
+{
+	/// <summary>
+	/// Description of Libros.
+	/// </summary>
+	public class Libros
+	{
+		private string codigo;
+		private string nombre;
+		private string marca;
+		private string proveedor;
+		private dobule precioUnitario;
+		private double precioMayor;
+		private int stock;
+		
+		
+		public Libros(string codigo,string nombre,string marca,string proveedor,double precioU,dobule precioM,int stock)
+		{
+			Codigo=codigo;
+			Nombre=nombre;
+			Marca=marca;
+			Proveedor=proveedor;
+			precioU=precioU;
+			precioM=precioM;
+			Stock=stock;
+		}
+		
+		public string Codigo{
+			get{
+				return codigo;
+			}
+			set{
+				codigo=codigo;
+			}
+		}
+		
+		public string Nombre{
+			get{
+				return nombre;
+			}
+			set{
+				nombre=nombre;
+			}
+		}
+		
+		public string Marca{
+			get{
+				return marca;
+			}
+			set{
+				marca=marca;
+			}
+		}
+		
+		public string Proveedor{
+			get{
+				return proveedor;
+			}
+			set{
+				proveedor=proveedor;
+			}
+		}
+		
+		public double precioU{
+			get{
+				return precioUnitario;
+			}
+			set{
+				precioUnitario=precioUnitario;
+			}
+		}
+		
+		public double precioM{
+			get{
+				return precioMayor;
+			}
+			set{
+				precioMayor=precioMayor;
+			}
+		}
+		
+		public int Stock{
+			get{
+				return this.stock;
+			}
+			set{
+				this.stock=stock;
+			}
+		}
+		
+	}
+}
