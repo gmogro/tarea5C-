@@ -11,38 +11,108 @@ namespace ABMlibreria
 	{
 		static void Main(string[] args)
 		{
-			byte op;
-			do
-			{
-				op = Menu();
-				switch(op) 
-				{
-				    case 1:
-				        Console.WriteLine(" ====================== CARGA DE DATOS ==================================");
-				        Console.Write("Ingrese el Codigo: ");string sCod;Console.ReadLine(sCod);
-				        Console.Write("Ingrese el Nombre: ");string sNom;Console.ReadLine(sNom);
-				        Console.Write("Ingrese el Marca: ");string sMarca;Console.ReadLine(sMarca);
-				        Console.Write("Ingrese el Nombre de Proveedor: ");string sNomProv;Console.ReadLine(s);
-				        Console.Write("Ingrese el Precio Minorista $: ");double sPrecMin= double.Parse(Console.ReadLine(sMarca);
-				        Console.Write("Ingrese el Marca: ");double sPrecMay = double.Parse(Console.ReadLine(sMarca);
-				        
-				        /* Carga de los datos al archivo Binario */
-				        FileStream fs = new FileStream(“binario.txt”, FileMode.Create);
-						BinaryWriter bw = new BinaryWriter(fs, Encoding.UTF8);
-						Long codigoCliente = 5487846;
-						Int edad = 22;
-						bool puntual = false;
-						bw.Write(codigoCliente);
-						bw.Write(edad);
-						bw.Write(puntual);
+            /* CONSTANTE */
+            const string FILE_NAME = "ABMLibreriaTest.dat";
 
-				         break;
+            /* ATRIBUTOS  */
+            byte op;
+
+			do
+            { 
+                op = Menu();
+                switch (op)
+                {
+                    case 1:
+                        /* Ingresamos los datos por la consola */
+                        Console.WriteLine(" ====================== CARGA DE DATOS ==================================");
+                        Console.Write("Ingrese el Codigo: "); string sCod = Console.ReadLine();
+                        Console.Write("Ingrese el Nombre: "); string sNom = Console.ReadLine();
+                        Console.Write("Ingrese el Marca: "); string sMarca = Console.ReadLine();
+                        Console.Write("Ingrese el Nombre de Proveedor: "); string sNomProv = Console.ReadLine();
+                        Console.Write("Ingrese el Precio Minorista : $ "); double dPrecMin = Convert.ToDouble(Console.ReadLine());
+                        Console.Write("Ingrese el Precio Mayorista : $ "); double dPrecMay = Convert.ToDouble(Console.ReadLine());
+                        Console.Write("Ingrese el Stock: "); int iStock = Convert.ToInt16(Console.ReadLine());
+                        Console.WriteLine(" ========================================================================");
+                        /* Si el Archivo no existe creamos uno nuevo */
+                        if (!File.Exists(FILE_NAME))
+                        {
+                            /* Asignamos el Stream y cargamos los datos binarios al Archivo. */
+                            FileStream FSNew = new FileStream(FILE_NAME, FileMode.CreateNew, FileAccess.Write);
+                            using (BinaryWriter bw = new BinaryWriter(FSNew))
+                            {
+                                bw.Write(sCod);
+                                bw.Write(sNom);
+                                bw.Write(sMarca);
+                                bw.Write(sNomProv);
+                                bw.Write(dPrecMin);
+                                bw.Write(dPrecMay);
+                                bw.Write(iStock);
+                            }
+                            Console.WriteLine("El Archivo {0} se creo con Exito.", FILE_NAME);
+                            Console.WriteLine("Los datos fueron cargados!!");
+                        }
+                        else
+                        {
+                            /* Si el Archivo ya existe continuamos cargando datos dentro del mismo. */
+                            /* Asignamos el Stream y cargamos los datos binarios al Archivo. */
+                            FileStream FSAp = new FileStream(FILE_NAME, FileMode.Append, FileAccess.Write);
+                            using (BinaryWriter bw = new BinaryWriter(FSAp))
+                            {
+                                bw.Write(sCod);
+                                bw.Write(sNom);
+                                bw.Write(sMarca);
+                                bw.Write(sNomProv);
+                                bw.Write(dPrecMin);
+                                bw.Write(dPrecMay);
+                            }
+                            Console.WriteLine("Los datos fueron cargados!!");
+                        }                  				
+                        break;
 				    case 2:
 				
 				         break;
 				    case 3:
-				         
-				         break;
+                        /* Creamos variables para cargar los datos del archivo */
+                        string sCodigo;
+                        string sNombre;
+                        string sMarcaLibro;
+                        string sNombreProveedor;
+                        double dPrecioMin;
+                        double dPrecioMay;
+                        int iStockNow;
+                        /* Controlamos que el Archivo Exista y lo abrimos */
+                        if (File.Exists(FILE_NAME))
+                        {
+                            FileStream f = new FileStream(FILE_NAME, FileMode.Open,FileAccess.Read, FileShare.Read);
+                            using (BinaryReader reader = new BinaryReader(f))
+                            {
+                                /* Mientras no sea el final del Archivo, leemos las lineas */
+                                while (reader.PeekChar() > -1 )
+                                {
+                                    /* Asignamos los datos contenidos en el archivo a las variables para luego mostrarlas */
+                                    sCodigo = reader.ReadString();
+                                    sNombre = reader.ReadString();
+                                    sMarcaLibro = reader.ReadString();
+                                    sNombreProveedor = reader.ReadString();
+                                    dPrecioMin = reader.ReadDouble();
+                                    dPrecioMay = reader.ReadDouble();
+                                    iStockNow = reader.ReadInt16();
+                                    Console.WriteLine(" ====================== VISUALIZAR DATOS ==================================");
+                                    Console.WriteLine("Codigo: " + sCodigo);
+                                    Console.WriteLine("Nombre: " + sNombre);
+                                    Console.WriteLine("Marca: " + sMarcaLibro);
+                                    Console.WriteLine("Nombre de Proveedor: " + sNombreProveedor);
+                                    Console.WriteLine("Precio Minorista: $" + dPrecioMin);
+                                    Console.WriteLine("Precio Mayorista: $" + dPrecioMay);
+                                    Console.WriteLine("Stock: "+iStockNow);
+                                    Console.WriteLine(" ==========================================================================");
+                                    Console.WriteLine();
+                                    Console.WriteLine("Presione una Tecla para continuar....");
+                                    Console.ReadKey();
+                                }                                    
+                            }
+                        }
+                        break;
 					case 4:
 				        
 				         break;
@@ -51,45 +121,27 @@ namespace ABMlibreria
 				         break;				         
 				  	default:
 				         Console.WriteLine("La Opción no es Valida.");
-				          break;
-				}	
-			}
-			while(op == 0);
-			
-		    Libros Books = new Libros();
-			string fileName = "temp.txt";
-		    FileStream stream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write);
-		    StreamWriter writer = new StreamWriter(stream);
-		
-		    writer.WriteLine("Esta es la primera línea del archivo.");
-		    writer.Close();
-		    
-		    FileStream streamR = new FileStream(fileName, FileMode.Open,
-		    FileAccess.Read);
-		    StreamReader reader = new StreamReader(streamR);
-		
-		    while (reader.Peek() > -1) 
-		      {
-		         Console.WriteLine(reader.ReadLine());
-		         Console.ReadKey();
-		      }
-		    reader.Close();
+				         break;
+				}
+                Console.Clear();
+            }
+			while(op != 0);
 		}
 		
-		/*  */
+		/* Menu de Opciones del Programa */
 		static byte Menu()
 		{
-			string sOpcion;
 			Console.WriteLine(" ====================== LIBRERIA ==================================");
 			Console.WriteLine("1 - Cargar un Libro.");
 			Console.WriteLine("2 - Modificar Datos.");
 			Console.WriteLine("3 - Ver Lista de Libros.");
 			Console.WriteLine("4 - Buscar un Libro.");
 			Console.WriteLine("0 - Salir.");
-			Console.Write("Elija su Opción: ");Console.ReadLine(sOpcion);
-			/* Convertimos el String a un valor numero Int */
+			Console.Write("Elija su Opción: ");
+            string sOpcion = Console.ReadLine();
+			/* Convertimos el String a un valor numerico Byte*/
 			byte bOpcion;
-			return bOpcion = sOpcion.ToString;
+            return bOpcion = Convert.ToByte(sOpcion);
 		}
 		   
 	}
