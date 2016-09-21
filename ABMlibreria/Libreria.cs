@@ -25,7 +25,7 @@ namespace ABMlibreria
 			set{lista=value;}
 		}
 		
-		public void agregarLibros(Libros newBook){
+		public void agregarLibro(Libros newBook){
 			lista.Add(newBook);
 		}
 		

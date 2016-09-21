@@ -29,8 +29,39 @@ namespace ABMlibreria
 			this.precioMay=precioMa;
 			this.stock=stock;
 		}
-		
-		/* Métodos */
+
+        /* Métodos */
+        public void visualizarDatos()
+        {
+            Console.WriteLine(" ====================== VISUALIZAR DATOS DEL ARCHIVO ==================================");
+            Console.WriteLine("Codigo: " + NombreProveedor);
+            Console.WriteLine("Nombre: " + Nombre);
+            Console.WriteLine("Marca: " + Marca);
+            Console.WriteLine("Nombre de Proveedor: " + NombreProveedor);
+            Console.WriteLine("Precio Minorista: $" + PrecioMinorista);
+            Console.WriteLine("Precio Mayorista: $" + PrecioMayorista);
+            Console.WriteLine("Stock: " + Stock);
+            Console.WriteLine(" ======================================================================================");
+            Console.WriteLine();
+            Console.WriteLine("Presione una Tecla para continuar....");
+            Console.ReadKey();
+        }
+
+        public string Codigo
+        {
+            get { return codigo; }
+            set { codigo = value; }
+        }
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+        public string Marca
+        {
+            get { return marca; }
+            set { marca = value; }
+        }
 		/* Los unicos atributos modificables son estos */
 		public string NombreProveedor
 		{
@@ -39,19 +70,20 @@ namespace ABMlibreria
 		}
 		public double PrecioMinorista
 		{
-			get{return precioUnitario;}
-			set{precioUnitario=value;}
+			get{return precioMin;}
+			set{precioMin=value;}
 		}
 		
 		public double PrecioMayorista
 		{
-			get{return precioMayor;}
-			set{precioMayor=value;}
+			get{return precioMay;}
+			set{precioMay=value;}
 		}
 		public int Stock{
 			get{return this.stock;}
 			set{this.stock=value;}
 		}
+
 		
 	}
 }

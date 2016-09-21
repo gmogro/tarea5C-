@@ -17,7 +17,10 @@ namespace ABMlibreria
             /* ATRIBUTOS  */
             byte op;
 
-			do
+            /* Instanciamos un Objeto de la Clase Libreria */
+            Libreria MiLibreria = new Libreria();
+
+            do
             { 
                 op = Menu();
                 switch (op)
@@ -33,9 +36,15 @@ namespace ABMlibreria
                         Console.Write("Ingrese el Precio Mayorista : $ "); double dPrecMay = Convert.ToDouble(Console.ReadLine());
                         Console.Write("Ingrese el Stock: "); int iStock = Convert.ToInt16(Console.ReadLine());
                         Console.WriteLine(" ========================================================================");
+                        /* Instanciamos un Objeto de la Clase Libros*/
+                        Libros Libro = new Libros(sCod,sNom,sMarca,sNomProv,dPrecMin,dPrecMay,iStock);
+                        /* Guardamos los datos */
+                        MiLibreria.agregarLibro(Libro);
+
                         /* Si el Archivo no existe creamos uno nuevo */
                         if (!File.Exists(FILE_NAME))
                         {
+                            
                             /* Asignamos el Stream y cargamos los datos binarios al Archivo. */
                             FileStream FSNew = new FileStream(FILE_NAME, FileMode.CreateNew, FileAccess.Write);
                             using (BinaryWriter bw = new BinaryWriter(FSNew))
@@ -97,7 +106,7 @@ namespace ABMlibreria
                                     dPrecioMin = reader.ReadDouble();
                                     dPrecioMay = reader.ReadDouble();
                                     iStockNow = reader.ReadInt16();
-                                    Console.WriteLine(" ====================== VISUALIZAR DATOS ==================================");
+                                    Console.WriteLine(" ====================== VISUALIZAR DATOS DEL ARCHIVO ==================================");
                                     Console.WriteLine("Codigo: " + sCodigo);
                                     Console.WriteLine("Nombre: " + sNombre);
                                     Console.WriteLine("Marca: " + sMarcaLibro);
@@ -105,7 +114,7 @@ namespace ABMlibreria
                                     Console.WriteLine("Precio Minorista: $" + dPrecioMin);
                                     Console.WriteLine("Precio Mayorista: $" + dPrecioMay);
                                     Console.WriteLine("Stock: "+iStockNow);
-                                    Console.WriteLine(" ==========================================================================");
+                                    Console.WriteLine(" ======================================================================================");
                                     Console.WriteLine();
                                     Console.WriteLine("Presione una Tecla para continuar....");
                                     Console.ReadKey();
@@ -114,7 +123,7 @@ namespace ABMlibreria
                         }
                         break;
 					case 4:
-				        
+                        List<Libros> Lista = MiLibreria.ListLibros;
 				         break;
 					case 0:
 				         
@@ -134,8 +143,8 @@ namespace ABMlibreria
 			Console.WriteLine(" ====================== LIBRERIA ==================================");
 			Console.WriteLine("1 - Cargar un Libro.");
 			Console.WriteLine("2 - Modificar Datos.");
-			Console.WriteLine("3 - Ver Lista de Libros.");
-			Console.WriteLine("4 - Buscar un Libro.");
+			Console.WriteLine("3 - Visualizar los datos de Arhivo.");
+			Console.WriteLine("4 - Visualizar los datos.");
 			Console.WriteLine("0 - Salir.");
 			Console.Write("Elija su Opción: ");
             string sOpcion = Console.ReadLine();
