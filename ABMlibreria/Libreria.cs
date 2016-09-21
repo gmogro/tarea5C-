@@ -1,12 +1,6 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Brian
- * Date: 21/09/2016
- * Time: 0:00
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿
 using System;
+using System.Collections.Generic;
 
 namespace ABMlibreria
 {
@@ -15,37 +9,37 @@ namespace ABMlibreria
 	/// </summary>
 	public class Libreria
 	{
-		
+		/* Atributos */
 		private List<Libros> lista ;
 		
+		/* Constructor */
 		public Libreria()
 		{
-			lista=new List<Libros>();
-			
+			lista=new List<Libros>();	
 		}
-		public List<Libros> Libros
+		
+		/* Métodos */
+		public List<Libros> ListLibros
 		{//Getter y Setter del atributo Lista de Libros
 			get{return lista;}
 			set{lista=value;}
 		}
 		
-		public void agregarLibros(Libros l){
-			lista.add(l);
+		public void agregarLibros(Libros newBook){
+			lista.Add(newBook);
 		}
 		
 //		public void eliminarLibro(){
 //			if(buscarLibro())
 //		}
 		
-		public Libros buscarLibro(int codig){
-			int i=0;
-			while(i<lista.Count)
+		public Libros buscarLibro(int code){
+			foreach (Libros Book in lista)
 			{
-				if(lista[i].codigo == codig)
+				if (Book.Equals(code))
 				{
-					return lista[i];
+					return Book;
 				}
-				i++;
 			}
 			return null;
 			

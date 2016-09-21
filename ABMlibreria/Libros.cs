@@ -1,11 +1,4 @@
-﻿/*
- * Created by SharpDevelop.
- * User: Brian
- * Date: 21/09/2016
- * Time: 0:00
- * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+﻿
 using System;
 
 namespace ABMlibreria
@@ -15,53 +8,42 @@ namespace ABMlibreria
 	/// </summary>
 	public class Libros
 	{
+		/* Atributos */
 		private string codigo;
 		private string nombre;
 		private string marca;
 		private string nombre_proveedor;
-		private double precioUnitario;
-		private double precioMayor;
+		private double precioMin;
+		private double precioMay;
 		private int stock;
 		
 		
+		/* Constructor */
 		public Libros(string codigo,string nombre,string marca,string nom_proveedor,double precioUn,double precioMa,int stock)
 		{
-			Codigo=codigo;
-			Nombre=nombre;
-			Marca=marca;
-			Proveedor=nom_proveedor;
-			precioU=precioUn;
-			precioM=precioMa;
-			Stock=stock;
+			this.codigo=codigo;
+			this.nombre=nombre;
+			this.marca=marca;
+			this.nombre_proveedor=nom_proveedor;
+			this.precioMin=precioUn;
+			this.precioMay=precioMa;
+			this.stock=stock;
 		}
 		
-		public string Codigo
-		{
-			get{return codigo;}
-			set{codigo=value;}
-		}
-		public string Nombre
-		{
-			get{return nombre;}
-			set{nombre=value;}
-		}
-		public string Marca
-		{
-			get{return marca;}
-			set{marca=value;}
-		}
+		/* Métodos */
+		/* Los unicos atributos modificables son estos */
 		public string NombreProveedor
 		{
 			get{return nombre_proveedor;}
 			set{ nombre_proveedor=value;}
 		}
-		public double precioU
+		public double PrecioMinorista
 		{
 			get{return precioUnitario;}
 			set{precioUnitario=value;}
 		}
 		
-		public double precioM
+		public double PrecioMayorista
 		{
 			get{return precioMayor;}
 			set{precioMayor=value;}
