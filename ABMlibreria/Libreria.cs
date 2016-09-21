@@ -8,6 +8,7 @@
  */
 using System;
 using System.Collections.Generic;
+using System.IO;
 namespace ABMlibreria
 {
 	/// <summary>
@@ -72,6 +73,40 @@ namespace ABMlibreria
             {
                 System.IO.Directory.CreateDirectory(fullPath);
             }
+        }
+        
+        //Escribe en el fichero todos los libros de la lista de libros de la libreria
+        public void CargarLibrosArchivo(string ruta)
+        {
+        	int i=0;
+        	try 
+			{
+				//Pasamos  filepath y ruta al constructor del StreamWriter 
+				StreamWriter sw = new StreamWriter(ruta);
+
+				while(i<Libros.Count)
+				{
+					sw.WriteLine("Codigo: "+Libros[0].Codigo);
+					sw.WriteLine("Nombre: "+Libros[0].Nombre);
+					sw.WriteLine("Marca: "+Libros[0].Marca);
+					sw.WriteLine("Nombre Proveedor: "+Libros[0].NombreProveedor);
+					sw.WriteLine("Precio Mayorista: $ "+Libros[0].precioM);
+					sw.WriteLine("Precio Unitario : $ "+(Libros[0].precioU));
+					sw.WriteLine("Stock :"+Libros[0].Stock+" Unid.");
+					i++;
+				}
+				
+				//Cerramos el Archivo
+				sw.Close();
+			}
+			catch(Exception e)
+			{
+				Console.WriteLine("Exception: " + e.Message);
+			}
+			finally 
+			{
+				Console.WriteLine("Executing finally block.");
+			}
         }
 	}
 }

@@ -22,15 +22,16 @@ namespace ABMlibreria
         	string sourcePath = System.IO.Path.Combine(fileName);
         	
 			//List<Libros> libros =  new List<Libros>();
-			Libros l1 = new Libros("123","La Tregua","Persan","Libros Salta S.A",125.5,120.00,20);
+			Libros l1 = new Libros("123","La Tregua","Person","Libros Salta S.A",125.5,120.00,20);
 			
 			Libreria Lib = new Libreria();
 			Lib.agregarLibros(l1);
 			
 			Lib.CreateEmptyDirectory(sourcePath);
 			Lib.CreateEmptyFile(fileName2);
-			
+			Lib.CargarLibrosArchivo(fileName2);
 			Console.ReadKey(true);
+		
 		}
 	}
 }
