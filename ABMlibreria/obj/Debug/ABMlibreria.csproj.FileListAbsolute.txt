@@ -1,1 +1,7 @@
 C:\Users\Brian\Documents\SharpDevelop Projects\ABMlibreria\ABMlibreria\obj\Debug\ABMlibreria.csprojResolveAssemblyReference.cache
+C:\Users\Brian\Documents\GitHub\tarea5C-\ABMlibreria\obj\Debug\ABMlibreria.csprojResolveAssemblyReference.cache
+C:\Users\Brian\Documents\GitHub\tarea5C-\ABMlibreria\bin\Debug\ABMlibreria.exe.config
+C:\Users\Brian\Documents\GitHub\tarea5C-\ABMlibreria\bin\Debug\ABMlibreria.exe
+C:\Users\Brian\Documents\GitHub\tarea5C-\ABMlibreria\bin\Debug\ABMlibreria.pdb
+C:\Users\Brian\Documents\GitHub\tarea5C-\ABMlibreria\obj\Debug\ABMlibreria.exe
+C:\Users\Brian\Documents\GitHub\tarea5C-\ABMlibreria\obj\Debug\ABMlibreria.pdb

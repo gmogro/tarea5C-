@@ -29,7 +29,7 @@ namespace ABMlibreria
 			Codigo=codigo;
 			Nombre=nombre;
 			Marca=marca;
-			Proveedor=nom_proveedor;
+			NombreProveedor=nom_proveedor;
 			precioU=precioUn;
 			precioM=precioMa;
 			Stock=stock;

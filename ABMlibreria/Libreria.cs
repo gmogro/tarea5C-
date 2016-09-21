@@ -7,7 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
-
+using System.Collections.Generic;
 namespace ABMlibreria
 {
 	/// <summary>
@@ -30,18 +30,18 @@ namespace ABMlibreria
 		}
 		
 		public void agregarLibros(Libros l){
-			lista.add(l);
+			lista.Add(l);
 		}
 		
 //		public void eliminarLibro(){
 //			if(buscarLibro())
 //		}
 		
-		public Libros buscarLibro(int codig){
+		public Libros buscarLibro(string codig){
 			int i=0;
 			while(i<lista.Count)
 			{
-				if(lista[i].codigo == codig)
+				if(lista[i].Codigo == codig)
 				{
 					return lista[i];
 				}
@@ -50,5 +50,28 @@ namespace ABMlibreria
 			return null;
 			
 		}
+		
+		
+		
+		
+		//Crea un fichero vacio fichero vacio
+        //</summary>
+        public void CreateEmptyFile(string fullPath)
+        {
+            if (!System.IO.File.Exists(fullPath))
+            {
+                using (System.IO.File.Create(fullPath)) { }
+            }
+        }
+        
+         // Crear un directorio vacio
+        //</summary>
+        public  void CreateEmptyDirectory(string fullPath)
+        {
+            if (!System.IO.Directory.Exists(fullPath))
+            {
+                System.IO.Directory.CreateDirectory(fullPath);
+            }
+        }
 	}
 }
