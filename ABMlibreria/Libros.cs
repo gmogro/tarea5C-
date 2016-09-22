@@ -34,7 +34,7 @@ namespace ABMlibreria
         public void visualizarDatos()
         {
             Console.WriteLine(" ====================== VISUALIZAR DATOS DEL ARCHIVO ==================================");
-            Console.WriteLine("Codigo: " + NombreProveedor);
+            Console.WriteLine("Codigo: " + Codigo);
             Console.WriteLine("Nombre: " + Nombre);
             Console.WriteLine("Marca: " + Marca);
             Console.WriteLine("Nombre de Proveedor: " + NombreProveedor);
